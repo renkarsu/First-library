@@ -8,7 +8,7 @@ namespace brahman<br>
 三角形汎用ヘッダ<br>
 General purpose Triangle header<br>
 
-##注意!!
+##注意!!<br>
 元々libraryとtestフォルダに分けてファイルを管理していましたが、ビルドシステムを整備するのがめんどくさいので、全部外に出しておきます。
 
 I don't use build system like cmake, because it is tired.
