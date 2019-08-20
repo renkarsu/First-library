@@ -1,6 +1,8 @@
 # First-library
 My first library
 
+三角形に特化した全く役に立たないライブラリ
+
 namespace brahman<br>
 
 三角形汎用ヘッダ<br>
