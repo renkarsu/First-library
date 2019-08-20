@@ -6,7 +6,7 @@
 
 namespace brahman{
 
-enum TriangleShape
+enum class TriangleShape
 {
     NotTriangle,
     Equilateral,
@@ -31,7 +31,7 @@ public:
 
     Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(UnInitialized)
     {
-        CheckShape();
+        InitializeShape();
         CalculateArea();
     }
 
@@ -40,7 +40,7 @@ public:
 
     }
 
-    void CheckShape()
+    void InitializeShape()
     {
         if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
         {
@@ -76,7 +76,7 @@ public:
     }
 
     void CalculateArea(){
-        T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary?
+        T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary? Yes, necessary
         area = sqrt(s*(s-ab)*(s-bc)*(s-ca));
     }    
 
@@ -92,11 +92,12 @@ public:
     {
         return ca;
     }
-    T GetShape()
+    T GetShape() const
     {
         return shape;
     }
-    T GetArea(){
+    T GetArea() const
+    {
         return area;
     }
 
@@ -105,27 +106,27 @@ public:
         switch (shape)
         {
 
-        case 0:
+        case NotTriangle:
             std::cout << "Not a Triangle" << std::endl;
             break;
 
-        case 1:
+        case Equilateral:
             std::cout << "Equilateral Triangle" << std::endl;
             break;
         
-        case 2:
+        case IsoscelesRight:
             std::cout << "IsoscelesRight Triangle" << std::endl;
             break;
 
-        case 3:
+        case Isosceles:
             std::cout << "Isosceles Triangle" << std::endl;
             break;
 
-        case 4:
+        case Right:
             std::cout << "Right Triangle" << std::endl;
             break;
 
-        case 5:
+        case InEquilateral:
             std::cout << "InEquilateral Triangle" << std::endl;
             break;
 

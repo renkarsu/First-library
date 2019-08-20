@@ -1,6 +1,7 @@
 #include"hello.h"
-#include"area.h"
+#include"triangle.h"
 
+//g++ -std=c++17 -Wall --pedantic-errors TriangleTest.cpp -o triangle
 int main(){
     //test 'hello.h'
     std::cout << "Test Hello()" << std::endl;
