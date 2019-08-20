@@ -24,12 +24,12 @@ class Triangle
     T ab;//Didn't use const, because I'm going to implement side-length extension function.
     T bc;
     T ca;
-    TriangleShape shape;
+    brahman::TriangleShape shape;
     T area;
 
 public:
 
-    Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(UnInitialized)
+    Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(brahman::TriangleShape::UnInitialized)
     {
         InitializeShape();
         CalculateArea();
@@ -46,32 +46,32 @@ public:
         {
             if(ab == bc && bc == ca)
             {
-                shape = Equilateral;
+                shape = brahman::TriangleShape::Equilateral;
             }
             else if(ab*ab + bc*bc == ca*ca || ab*ab + ca*ca == bc*bc || bc*bc + ca*ca == ab*ab)
             {
                 if(ab == bc || bc == ca || ca == ab)
                 {
-                    shape = IsoscelesRight;
+                    shape = brahman::TriangleShape::IsoscelesRight;
                 }
                 else
                 {
-                    shape = Right;
+                    shape = brahman::TriangleShape::Right;
                 }
             }
             else if(ab == bc || bc == ca || ca == ab)
             {
-                shape = Isosceles;
+                shape = brahman::TriangleShape::Isosceles;
             }
             else
             {
-                shape = InEquilateral;
+                shape = brahman::TriangleShape::InEquilateral;
             }
             
         }
         else
         {
-            shape = NotTriangle;
+            shape = brahman::TriangleShape::NotTriangle;
         }
     }
 
@@ -94,7 +94,7 @@ public:
     }
     T GetShape() const
     {
-        return shape;
+        return static_cast<T>(shape);
     }
     T GetArea() const
     {
@@ -106,27 +106,27 @@ public:
         switch (shape)
         {
 
-        case NotTriangle:
+        case brahman::TriangleShape::NotTriangle:
             std::cout << "Not a Triangle" << std::endl;
             break;
 
-        case Equilateral:
+        case brahman::TriangleShape::Equilateral:
             std::cout << "Equilateral Triangle" << std::endl;
             break;
         
-        case IsoscelesRight:
+        case brahman::TriangleShape::IsoscelesRight:
             std::cout << "IsoscelesRight Triangle" << std::endl;
             break;
 
-        case Isosceles:
+        case brahman::TriangleShape::Isosceles:
             std::cout << "Isosceles Triangle" << std::endl;
             break;
 
-        case Right:
+        case brahman::TriangleShape::Right:
             std::cout << "Right Triangle" << std::endl;
             break;
 
-        case InEquilateral:
+        case brahman::TriangleShape::InEquilateral:
             std::cout << "InEquilateral Triangle" << std::endl;
             break;
 
