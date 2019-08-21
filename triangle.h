@@ -94,10 +94,6 @@ public:
     {
         return ca;
     }
-    /*T GetShape() const
-    {
-        return static_cast<T>(shape);
-    }*/
     T GetArea() const
     {
         return area;
