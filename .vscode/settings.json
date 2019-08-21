@@ -72,5 +72,8 @@
         "utility": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "cmake"
+    ]
 }
