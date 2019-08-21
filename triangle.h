@@ -140,8 +140,8 @@ public:
         std::cout << "AB: " << GetAB() << std::endl;
         std::cout << "BC: " << GetBC() << std::endl;
         std::cout << "CA: " << GetCA() << std::endl;
+        std::cout << "Area is " << GetArea() << std::endl;        
         std::cout << "Shape is " << GetShape() << std::endl;
-        std::cout << "Area is " << GetArea() << std::endl;
     }
 };
 }
