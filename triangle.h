@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<cmath>
+#include<string>
 
 namespace brahman{
 
@@ -75,7 +76,8 @@ public:
         }
     }
 
-    void CalculateArea(){
+    void CalculateArea()
+    {
         T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary? Yes, necessary
         area = sqrt(s*(s-ab)*(s-bc)*(s-ca));
     }    
@@ -92,57 +94,58 @@ public:
     {
         return ca;
     }
-    T GetShape() const
+    /*T GetShape() const
     {
         return static_cast<T>(shape);
-    }
+    }*/
     T GetArea() const
     {
         return area;
     }
 
-    void PrintShape(){
+    std::string GetShape() const
+    {
         
         switch (shape)
         {
 
         case TriangleShape::NotTriangle:
-            std::cout << "Not a Triangle" << std::endl;
+            return std::string("NotTriangle");
             break;
 
         case TriangleShape::Equilateral:
-            std::cout << "Equilateral Triangle" << std::endl;
+            return std::string("Equilateral Triangle");
             break;
         
         case TriangleShape::IsoscelesRight:
-            std::cout << "IsoscelesRight Triangle" << std::endl;
+            return std::string("IsoscelesRight Triangle");
             break;
 
         case TriangleShape::Isosceles:
-            std::cout << "Isosceles Triangle" << std::endl;
+            return std::string("Isosceles Triangle");
             break;
 
         case TriangleShape::Right:
-            std::cout << "Right Triangle" << std::endl;
+            return std::string("Right Triangle");
             break;
 
         case TriangleShape::InEquilateral:
-            std::cout << "InEquilateral Triangle" << std::endl;
+            return std::string("InEquilateral Triangle");
             break;
 
         default:
-            std::cout << "Error" << std::endl;//It will become exception handling
+            return std::string("Error");//It will become exception handling
             break;
         }
     }    
 
     void PrintCondition()
     {
-        std::cout << GetAB() << std::endl;
-        std::cout << GetBC() << std::endl;
-        std::cout << GetCA() << std::endl;
-        PrintShape();
-        std::cout << GetArea() << std::endl;
+        std::cout << "AB: " << GetAB() << std::endl;
+        std::cout << "BC: " << GetBC() << std::endl;
+        std::cout << "CA: " << GetCA() << std::endl;
+        std::cout << "Shape is " << GetShape() << std::endl;
+        std::cout << "Area is " << GetArea() << std::endl;
     }
 };
 }

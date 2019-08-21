@@ -14,19 +14,15 @@ int main(){
     std::cout << "Input data: " << tri.GetAB() << " " << tri.GetBC() << " " << tri.GetCA() << std::endl << std::endl;
 
     std::cout << "Test GetAB(), GetBC(), GetCA()" << std::endl;
-    std::cout << "AB: " << tri.GetAB() << std::endl;
-    std::cout << "BC: " << tri.GetBC() << std::endl;
-    std::cout << "CA: " << tri.GetCA() << std::endl << std::endl;
-
-    std::cout << "Test CheckShape()" << std::endl;
-    std::cout << "Shape is " << tri.GetShape() << std::endl << std::endl;
+    std::cout << "tri.GetAB(): " << tri.GetAB() << std::endl;
+    std::cout << "tri.GetBC(): " << tri.GetBC() << std::endl;
+    std::cout << "tri.GetCA(): " << tri.GetCA() << std::endl << std::endl;
 
     std::cout << "Test GetArea()" << std::endl;
-    std::cout << "Area is " << tri.GetArea() << std::endl << std::endl;    
+    std::cout << "tri.GetArea(): " << tri.GetArea() << std::endl << std::endl;
 
-    std::cout << "Test PrintShape()" << std::endl;
-    tri.PrintShape();
-    std::cout << std::endl;
+    std::cout << "Test GetShape()" << std::endl;
+    std::cout << "tri.GetShape(): " << tri.GetShape() << std::endl << std::endl;
 
     std::cout << "Test PrintCondition()" << std::endl;
     tri.PrintCondition();
