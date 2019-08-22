@@ -32,7 +32,7 @@ public:
 
     Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
     {
-        InitializeShape();
+        shape = InitializeShape();
         area = CalculateArea();
     }
 
@@ -41,38 +41,38 @@ public:
 
     }
 
-    void InitializeShape()
+    TriangleShape InitializeShape() const
     {
         if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
         {
             if(ab == bc && bc == ca)
             {
-                shape = TriangleShape::Equilateral;
+                return TriangleShape::Equilateral;
             }
             else if(ab*ab + bc*bc == ca*ca || ab*ab + ca*ca == bc*bc || bc*bc + ca*ca == ab*ab)
             {
                 if(ab == bc || bc == ca || ca == ab)
                 {
-                    shape = TriangleShape::IsoscelesRight;
+                    return TriangleShape::IsoscelesRight;
                 }
                 else
                 {
-                    shape = TriangleShape::Right;
+                    return TriangleShape::Right;
                 }
             }
             else if(ab == bc || bc == ca || ca == ab)
             {
-                shape = TriangleShape::Isosceles;
+                return TriangleShape::Isosceles;
             }
             else
             {
-                shape = TriangleShape::InEquilateral;
+                return TriangleShape::InEquilateral;
             }
             
         }
         else
         {
-            shape = TriangleShape::NotTriangle;
+            return TriangleShape::NotTriangle;
         }
     }
 
