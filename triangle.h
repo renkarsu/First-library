@@ -4,6 +4,7 @@
 #include<iostream>
 #include<cmath>
 #include<string>
+#include<string_view>
 
 namespace brahman{
 
@@ -97,32 +98,31 @@ public:
         return area;
     }
     
-    std::string GetShape() const
+    constexpr std::string_view GetShape() const
     {
-        
+        using namespace std::string_view_literals;
         switch (shape)
         {
-
         case TriangleShape::NotTriangle:
-            return std::string("NotTriangle");
+            return "NotTriangle"sv;
 
         case TriangleShape::Equilateral:
-            return std::string("Equilateral Triangle");
+            return "Equilateral Triangle"sv;
         
         case TriangleShape::IsoscelesRight:
-            return std::string("IsoscelesRight Triangle");
+            return "IsoscelesRight Triangle"sv;
 
         case TriangleShape::Isosceles:
-            return std::string("Isosceles Triangle");
+            return "Isosceles Triangle"sv;
 
         case TriangleShape::Right:
-            return std::string("Right Triangle");
+            return "Right Triangle"sv;
 
         case TriangleShape::InEquilateral:
-            return std::string("InEquilateral Triangle");
+            return "InEquilateral Triangle"sv;
 
         default:
-            return std::string("Error");//It will become exception handling
+            return "Error"sv;//It will become exception handling
         }
     }    
 
