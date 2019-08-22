@@ -36,10 +36,7 @@ public:
         area = CalculateArea();
     }
 
-    ~Triangle()
-    {
-
-    }
+    ~Triangle() = default;
 
     constexpr TriangleShape InitializeShape() const
     {
