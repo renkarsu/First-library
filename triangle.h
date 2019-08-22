@@ -47,7 +47,7 @@ class Triangle
     {
         T s = (a+b+c) / 2;
         return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
-    }    
+    }
 
 public:
 
@@ -82,7 +82,7 @@ public:
             {
                 return TriangleShape::InEquilateral;
             }
-            
+
         }
         else
         {
@@ -106,7 +106,7 @@ public:
     {
         return area;
     }
-    
+
     constexpr std::string_view GetShape() const
     {
         using namespace std::string_view_literals;
@@ -117,7 +117,7 @@ public:
 
         case TriangleShape::Equilateral:
             return "Equilateral Triangle"sv;
-        
+
         case TriangleShape::IsoscelesRight:
             return "IsoscelesRight Triangle"sv;
 
@@ -133,14 +133,14 @@ public:
         default:
             return "Error"sv;//It will become exception handling
         }
-    }    
+    }
 
     friend std::ostream& operator<<(std::ostream& os, Triangle const& tri)
     {
         os << "AB: " << tri.GetAB() << '\n';
         os << "BC: " << tri.GetBC() << '\n';
         os << "CA: " << tri.GetCA() << '\n';
-        os << "Area is " << tri.GetArea() << '\n';        
+        os << "Area is " << tri.GetArea() << '\n';
         os << "Shape is " << tri.GetShape() << '\n';
         return os;
     }
