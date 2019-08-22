@@ -9,7 +9,7 @@ int main(){
     std::cout << std::endl;
 
     //test 'area.h'
-    brahman::Triangle<double> tri(2.5, 4.2, 5.0);
+    constexpr brahman::Triangle<double> tri(2.5, 4.2, 5.0);
 
     std::cout << "Input data: " << tri.GetAB() << " " << tri.GetBC() << " " << tri.GetCA() << std::endl << std::endl;
 
@@ -25,5 +25,5 @@ int main(){
     std::cout << "tri.GetShape(): " << tri.GetShape() << std::endl << std::endl;
 
     std::cout << "Test PrintCondition()" << std::endl;
-    tri.PrintCondition();
+    std::cout << tri;
 }

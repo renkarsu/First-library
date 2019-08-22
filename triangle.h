@@ -6,7 +6,21 @@
 #include<string>
 #include<string_view>
 
-namespace brahman{
+namespace brahman {
+
+template < typename T >
+constexpr T sqrt( T s )
+{
+    T x = s / 2.0 ;
+    T prev = 0.0 ;
+
+    while ( x != prev )
+    {
+        prev = x ;
+        x = (x + s / x ) / 2.0 ;
+    }
+    return x ;
+}
 
 enum class TriangleShape
 {
@@ -26,16 +40,18 @@ class Triangle
     T ab;//Didn't use const, because I'm going to implement side-length extension function.
     T bc;
     T ca;
-    TriangleShape shape;
     T area;
+    TriangleShape shape = TriangleShape::UnInitialized;
+
+    static constexpr T CalculateArea(T a, T b, T c)
+    {
+        T s = (a+b+c) / 2;
+        return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
+    }    
 
 public:
 
-    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
-    {
-        shape = InitializeShape();
-        area = CalculateArea();
-    }
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
 
     ~Triangle() = default;
 
@@ -73,13 +89,6 @@ public:
             return TriangleShape::NotTriangle;
         }
     }
-
-    constexpr T CalculateArea() const
-    {
-        using std::sqrt;
-        T s = (ab+bc+ca) / 2;
-        return static_cast<T>(sqrt(s*(s-ab)*(s-bc)*(s-ca)));
-    }    
 
     constexpr T GetAB() const
     {
@@ -126,13 +135,14 @@ public:
         }
     }    
 
-    void PrintCondition()
+    friend std::ostream& operator<<(std::ostream& os, Triangle const& tri)
     {
-        std::cout << "AB: " << GetAB() << std::endl;
-        std::cout << "BC: " << GetBC() << std::endl;
-        std::cout << "CA: " << GetCA() << std::endl;
-        std::cout << "Area is " << GetArea() << std::endl;        
-        std::cout << "Shape is " << GetShape() << std::endl;
+        os << "AB: " << tri.GetAB() << '\n';
+        os << "BC: " << tri.GetBC() << '\n';
+        os << "CA: " << tri.GetCA() << '\n';
+        os << "Area is " << tri.GetArea() << '\n';        
+        os << "Shape is " << tri.GetShape() << '\n';
+        return os;
     }
 };
 }
