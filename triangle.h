@@ -33,7 +33,7 @@ public:
     Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
     {
         InitializeShape();
-        CalculateArea();
+        area = CalculateArea();
     }
 
     ~Triangle()
@@ -76,10 +76,10 @@ public:
         }
     }
 
-    void CalculateArea()
+    T CalculateArea() const
     {
         T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary? Yes, necessary
-        area = sqrt(s*(s-ab)*(s-bc)*(s-ca));
+        return static_cast<T>(sqrt(s*(s-ab)*(s-bc)*(s-ca)));
     }    
 
     T GetAB() const
@@ -98,7 +98,7 @@ public:
     {
         return area;
     }
-
+    
     std::string GetShape() const
     {
         
@@ -107,31 +107,24 @@ public:
 
         case TriangleShape::NotTriangle:
             return std::string("NotTriangle");
-            break;
 
         case TriangleShape::Equilateral:
             return std::string("Equilateral Triangle");
-            break;
         
         case TriangleShape::IsoscelesRight:
             return std::string("IsoscelesRight Triangle");
-            break;
 
         case TriangleShape::Isosceles:
             return std::string("Isosceles Triangle");
-            break;
 
         case TriangleShape::Right:
             return std::string("Right Triangle");
-            break;
 
         case TriangleShape::InEquilateral:
             return std::string("InEquilateral Triangle");
-            break;
 
         default:
             return std::string("Error");//It will become exception handling
-            break;
         }
     }    
 
