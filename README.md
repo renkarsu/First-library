@@ -1,5 +1,5 @@
 # First-library
-My first library
+My first C++17 library
 
 三角形に特化した全く役に立たないライブラリ<br>
 This is not useful library for people.<br>
