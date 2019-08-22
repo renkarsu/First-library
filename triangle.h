@@ -30,7 +30,7 @@ class Triangle
 
 public:
 
-    Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
     {
         shape = InitializeShape();
         area = CalculateArea();
@@ -41,7 +41,7 @@ public:
 
     }
 
-    TriangleShape InitializeShape() const
+    constexpr TriangleShape InitializeShape() const
     {
         if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
         {
@@ -76,25 +76,26 @@ public:
         }
     }
 
-    T CalculateArea() const
+    constexpr T CalculateArea() const
     {
-        T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary? Yes, necessary
+        using std::sqrt;
+        T s = (ab+bc+ca) / 2;
         return static_cast<T>(sqrt(s*(s-ab)*(s-bc)*(s-ca)));
     }    
 
-    T GetAB() const
+    constexpr T GetAB() const
     {
         return ab;
     }
-    T GetBC() const
+    constexpr T GetBC() const
     {
         return bc;
     }
-    T GetCA() const
+    constexpr T GetCA() const
     {
         return ca;
     }
-    T GetArea() const
+    constexpr T GetArea() const
     {
         return area;
     }
