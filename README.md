@@ -1,17 +1,19 @@
 # First-library
 My first library
 
-三角形に特化した全く役に立たないライブラリ
-
-namespace brahman<br>
+三角形に特化した全く役に立たないライブラリ<br>
+This is not useful library for people.<br>
 
 三角形汎用ヘッダ<br>
 General purpose Triangle header<br>
 
+namespace brahman<br>
+
 ## 注意!!
 元々libraryとtestフォルダに分けてファイルを管理していましたが、ビルドシステムを整備するのがめんどくさいので、全部外に出しておきます。<br>
 <br>
-I don't use build system like Cmake, because it is tired.<br>
+I don't use build system like Cmake.<br>
+Is it necessary?<br>
 I scatter my files.
 
 ## Initialization
@@ -40,7 +42,13 @@ PrintCondition():Invoke all GetXX(), than call GetArea() and GetShape()
 A.必要
 
 ## 今後の予定
-*非メンバ関数を用意する<br>
-*enum class TriangleShapeの中にoperator<<をオーバーロードする<br>
-*openSiv3Dを導入して三角形を描画する<br>
-*三角形の辺を伸ばしたり、三角形を拡大縮小できたりするようにする
+* 非メンバ関数を用意する<br>
+* enum class TriangleShapeの中にoperator<<をオーバーロードする<br>
+* openSiv3Dを導入して三角形を描画する<br>
+* 三角形の辺を伸ばしたり、三角形を拡大縮小できたりするようにする
+
+## Future
+* To prepare non-member function.<br>
+* To overload operator<< in enum class TriangleShape.<br>
+* Introduce openSiv3D, and then draw a triangle.<br>
+* extend side or scales a triangle.
