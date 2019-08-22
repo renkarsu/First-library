@@ -9,7 +9,7 @@ General purpose Triangle header<br>
 
 namespace brahman<br>
 
-## 注意!!
+## Caution!!
 元々libraryとtestフォルダに分けてファイルを管理していましたが、ビルドシステムを整備するのがめんどくさいので、全部外に出しておきます。<br>
 <br>
 I don't use build system like Cmake.<br>
