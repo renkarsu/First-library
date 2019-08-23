@@ -4,8 +4,23 @@
 #include<iostream>
 #include<cmath>
 #include<string>
+#include<string_view>
 
-namespace brahman{
+namespace brahman {
+
+template < typename T >
+constexpr T sqrt( T s )
+{
+    T x = s / 2.0 ;
+    T prev = 0.0 ;
+
+    while ( x != prev )
+    {
+        prev = x ;
+        x = (x + s / x ) / 2.0 ;
+    }
+    return x ;
+}
 
 enum class TriangleShape
 {
@@ -25,23 +40,22 @@ class Triangle
     T ab;//Didn't use const, because I'm going to implement side-length extension function.
     T bc;
     T ca;
-    TriangleShape shape;
     T area;
+    TriangleShape shape = TriangleShape::UnInitialized;
+
+    static constexpr T CalculateArea(T a, T b, T c)
+    {
+        T s = (a+b+c) / 2;
+        return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
+    }
 
 public:
 
-    Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), shape(TriangleShape::UnInitialized)
-    {
-        shape = InitializeShape();
-        area = CalculateArea();
-    }
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
 
-    ~Triangle()
-    {
+    ~Triangle() = default;
 
-    }
-
-    TriangleShape InitializeShape() const
+    constexpr TriangleShape InitializeShape() const
     {
         if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
         {
@@ -68,7 +82,7 @@ public:
             {
                 return TriangleShape::InEquilateral;
             }
-            
+
         }
         else
         {
@@ -76,65 +90,59 @@ public:
         }
     }
 
-    T CalculateArea() const
-    {
-        T s = static_cast<T>(ab+bc+ca)/2;//Is cast necessary? Yes, necessary
-        return static_cast<T>(sqrt(s*(s-ab)*(s-bc)*(s-ca)));
-    }    
-
-    T GetAB() const
+    constexpr T GetAB() const
     {
         return ab;
     }
-    T GetBC() const
+    constexpr T GetBC() const
     {
         return bc;
     }
-    T GetCA() const
+    constexpr T GetCA() const
     {
         return ca;
     }
-    T GetArea() const
+    constexpr T GetArea() const
     {
         return area;
     }
-    
-    std::string GetShape() const
+
+    constexpr std::string_view GetShape() const
     {
-        
+        using namespace std::string_view_literals;
         switch (shape)
         {
-
         case TriangleShape::NotTriangle:
-            return std::string("NotTriangle");
+            return "NotTriangle"sv;
 
         case TriangleShape::Equilateral:
-            return std::string("Equilateral Triangle");
-        
+            return "Equilateral Triangle"sv;
+
         case TriangleShape::IsoscelesRight:
-            return std::string("IsoscelesRight Triangle");
+            return "IsoscelesRight Triangle"sv;
 
         case TriangleShape::Isosceles:
-            return std::string("Isosceles Triangle");
+            return "Isosceles Triangle"sv;
 
         case TriangleShape::Right:
-            return std::string("Right Triangle");
+            return "Right Triangle"sv;
 
         case TriangleShape::InEquilateral:
-            return std::string("InEquilateral Triangle");
+            return "InEquilateral Triangle"sv;
 
         default:
-            return std::string("Error");//It will become exception handling
+            return "Error"sv;//It will become exception handling
         }
-    }    
+    }
 
-    void PrintCondition()
+    friend std::ostream& operator<<(std::ostream& os, Triangle const& tri)
     {
-        std::cout << "AB: " << GetAB() << std::endl;
-        std::cout << "BC: " << GetBC() << std::endl;
-        std::cout << "CA: " << GetCA() << std::endl;
-        std::cout << "Area is " << GetArea() << std::endl;        
-        std::cout << "Shape is " << GetShape() << std::endl;
+        os << "AB: " << tri.GetAB() << '\n';
+        os << "BC: " << tri.GetBC() << '\n';
+        os << "CA: " << tri.GetCA() << '\n';
+        os << "Area is " << tri.GetArea() << '\n';
+        os << "Shape is " << tri.GetShape() << '\n';
+        return os;
     }
 };
 }
