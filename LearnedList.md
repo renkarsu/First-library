@@ -7,6 +7,7 @@ A. テストがしやすいのと,非staticメンバ変数（主に状態）な�
 <br>
 蛇足. 関数にもメモリが存在していて,メモリの節約になるから（多分）（それならGetXXもstaticにするべき？）<br>
 <br>
+
 * なんでCalculateArea()はprivate？<br>
 privateなのは,ユーザが使う必要が無いから.<br>
 <br>
