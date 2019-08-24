@@ -5,7 +5,7 @@
 
 namespace brahman{
 inline void Hello(){
-    std::cout << "hello" << std::endl;
+    std::cout << "hello" << '\n';
 }
 }
 
