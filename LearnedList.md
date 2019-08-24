@@ -8,6 +8,11 @@ A. テストがしやすいのと,非staticメンバ変数（主に状態）な�
 蛇足. 関数にもメモリが存在していて,メモリの節約になるから（多分）（それならGetXXもstaticにするべき？）<br>
 <br>
 
+* なぜsqrtはtemplateにしたの？<br>
+A. template目的というより,constexprをつけたかったから.<br>
+普通は標準ライブラリにあるものは自前で用意しない.<br>
+<br>
+
 * なんでCalculateArea()はprivate？<br>
 privateなのは,ユーザが使う必要が無いから.<br>
 <br>
@@ -19,6 +24,7 @@ A. 使いそう(;'∀') そのうち,ユーザが面積を確認できるよう�
 * なぜconstexprをコンストラクタにつけるのか<br>
 A. コンパイル時にコンストラクタを計算できるなら計算した方が良いよね！<br>
 コンストラクタもメンバ関数の一種<br>
+A2. constexprで計算できるものは未定義動作を含まないことを保証できるのでテストになる<br>
 <br>
 
 e.g.<br>
@@ -66,6 +72,18 @@ constexpr関数は実行時にも計算できて,実行時の副作用が無い�
 コンパイル時は副作用がなく,コンパイル時か実行時に計算できる関数<br>
 ...と考えるが吉？<br>
 <br>
+
+* endlではなく,なんで'\n'？
+A. 改行を出力するためだけにわざわざバッファフラッシュをするのは処理の無駄なので
+appendix
+https://www.quora.com/When-do-you-use-std-endl-vs-n-in-C
+https://www.geeksforgeeks.org/endl-vs-n-in-cpp/
+
+* バッファフラッシュしたいのはいつ？つまり,いつendlを使えばいい？
+A. endlではバッファフラッシュのタイミングが指定されてるだけで,なくてもフラッシュする
+appendix
+ここにあるC11ドラフトからの言及とかも参考になる.
+https://stackoverflow.com/questions/27910422/c-flushing-the-buffer
 
 * 続きは< string_view >とfriendとostreamかな？<br>
 <br>
