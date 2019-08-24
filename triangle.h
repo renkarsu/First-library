@@ -45,7 +45,7 @@ class Triangle
 
     static constexpr T CalculateArea(T a, T b, T c)
     {
-        T s = (a+b+c) / 2;
+        T s =  static_cast<T>(a+b+c) / 2;
         return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
     }
 
