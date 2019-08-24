@@ -73,21 +73,24 @@ constexpr関数は実行時にも計算できて,実行時の副作用が無い�
 ...と考えるが吉？<br>
 <br>
 
-* endlではなく,なんで'\n'？
-A. 改行を出力するためだけにわざわざバッファフラッシュをするのは処理の無駄なので
-appendix
-https://www.quora.com/When-do-you-use-std-endl-vs-n-in-C
-https://www.geeksforgeeks.org/endl-vs-n-in-cpp/
+* endlではなく,なんで'\n'?<br>
+A. 改行を出力するためだけにわざわざバッファフラッシュをするのは処理の無駄なので<br>
+appendix<br>
+https://www.quora.com/When-do-you-use-std-endl-vs-n-in-C<br>
+https://www.geeksforgeeks.org/endl-vs-n-in-cpp/<br>
+<br>
 
-* バッファフラッシュしたいのはいつ？つまり,いつendlを使えばいい？
+* バッファフラッシュしたいのはいつ？つまり,いつendlを使えばいい？<br>
 A. endlではbuffer-flushのtimingが指定されてるだけで,なくてもbufferが貯まればflushする<br>
-あと,flushしないと画面とかに出力されないので,その辺りコントロールしたいときにflush
-よって,ストリームに出力を貯め込みたい時に'\n'使って,こまめに出力したいときはendl
-（ぶっちゃけbufferとかflushよく分かってないです.stdoutも雰囲気使ってる.区別はできてない.）
-appendix
-ここにあるC11ドラフトからの言及とかも参考になる.
-https://stackoverflow.com/questions/27910422/c-flushing-the-buffer
-https://www.quora.com/What-does-it-mean-to-flush-the-output-stream-in-C++
+あと,flushしないと画面とかに出力されないので,その辺りコントロールしたいときにflush<br>
+よって,ストリームに出力を貯め込みたい時に'\n'使って,こまめに出力したいときはendl<br>
+（ぶっちゃけbufferとかflushよく分かってないです.stdoutも雰囲気使ってる.区別はできてない.）<br>
+<br>
+appendix<br>
+ここにあるC11ドラフトからの言及とかも参考になる.<br>
+https://stackoverflow.com/questions/27910422/c-flushing-the-buffer<br>
+https://www.quora.com/What-does-it-mean-to-flush-the-output-stream-in-C++<br>
+<br>
 
 * 続きは< string_view >とfriendとostreamかな？<br>
 <br>
