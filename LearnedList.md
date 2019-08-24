@@ -80,10 +80,14 @@ https://www.quora.com/When-do-you-use-std-endl-vs-n-in-C
 https://www.geeksforgeeks.org/endl-vs-n-in-cpp/
 
 * バッファフラッシュしたいのはいつ？つまり,いつendlを使えばいい？
-A. endlではバッファフラッシュのタイミングが指定されてるだけで,なくてもフラッシュする
+A. endlではbuffer-flushのtimingが指定されてるだけで,なくてもbufferが貯まればflushする<br>
+あと,flushしないと画面とかに出力されないので,その辺りコントロールしたいときにflush
+よって,ストリームに出力を貯め込みたい時に'\n'使って,こまめに出力したいときはendl
+（ぶっちゃけbufferとかflushよく分かってないです.stdoutも雰囲気使ってる.区別はできてない.）
 appendix
 ここにあるC11ドラフトからの言及とかも参考になる.
 https://stackoverflow.com/questions/27910422/c-flushing-the-buffer
+https://www.quora.com/What-does-it-mean-to-flush-the-output-stream-in-C++
 
 * 続きは< string_view >とfriendとostreamかな？<br>
 <br>
