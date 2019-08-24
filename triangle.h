@@ -55,6 +55,7 @@ public:
 
     ~Triangle() = default;
 
+    //TODO: Increase readability
     constexpr TriangleShape InitializeShape() const
     {
         if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
