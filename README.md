@@ -16,6 +16,16 @@ I don't use build system like Cmake.<br>
 Is it necessary?<br>
 I scatter my files.
 
+## 今後の予定
+* 非メンバ関数を用意する<br>
+* openSiv3Dを導入して三角形を描画する<br>
+* 三角形の辺を伸ばしたり、三角形を拡大縮小できたりするようにする<br>
+
+## Future
+* To prepare non-member function.<br>
+* Introduce openSiv3D, and then draw a triangle.<br>
+* extend side or scales a triangle.<br>
+
 ## Initialization
 brahman::Triangle< typename > class-name(side-length, side-length, side-length);
 
@@ -43,13 +53,3 @@ A.必要<br>
 A.enum classに実装しなくてよかった<br>
 仕様を決めてないせいで、constにしていない変数や関数が多い<br>
 A.いなむ先生とtimelerさんに多大な感謝<br>
-
-## 今後の予定
-* 非メンバ関数を用意する<br>
-* openSiv3Dを導入して三角形を描画する<br>
-* 三角形の辺を伸ばしたり、三角形を拡大縮小できたりするようにする
-
-## Future
-* To prepare non-member function.<br>
-* Introduce openSiv3D, and then draw a triangle.<br>
-* extend side or scales a triangle.
