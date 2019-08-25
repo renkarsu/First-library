@@ -7,7 +7,7 @@
 #include<string_view>
 
 namespace brahman {
-//SUGGESTION: make math hedder, then put this function.
+//SUGGESTION: make math header, then put this function.
 template < typename T >
 constexpr T sqrt( T s )
 {
