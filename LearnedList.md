@@ -92,8 +92,16 @@ https://stackoverflow.com/questions/27910422/c-flushing-the-buffer<br>
 https://www.quora.com/What-does-it-mean-to-flush-the-output-stream-in-C++<br>
 <br>
 
-* 続きは< string_view >とfriendとostreamかな？<br>
+* なんで演算子"<<"のオーバーロードはfriend<br>
+A. friendが無いとクラス内の private メンバにアクセスすることができないから.<br>
+クラスのメンバ関数で演算子をオーバーロードする場合,引数はひとつのみという制約がある.<br>
+そのため,引数が二つ必要な"<<"演算子は困る.<br>
+このため,クラス外部に関数を宣言し,定義することが考えられる.（メンバ関数の分離）<br>
+しかし,これ以外にも方法があって,friend関数は非メンバ関数として関数を定義できるkeyword.<br>
 <br>
+"必ずグローバル関数にする必要がある."という流派もある.<br>
+<br>
+
 ## 知識シリーズ
 
 /*const編*/<br>
