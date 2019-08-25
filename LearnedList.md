@@ -14,7 +14,7 @@ A. template目的というより,constexprをつけたかったから.<br>
 <br>
 
 * なんでCalculateArea()はprivate？<br>
-privateなのは,ユーザが使う必要が無いから.<br>
+privateなのは,ユーザが直接使う必要が無いから.<br>
 <br>
 
 *  CalculateArea()はユーザは使わないの?<br>
@@ -62,7 +62,7 @@ A. =defaultは明示的なデフォルト定義と呼ばれており,明示的�
 
 * なぜメンバ関数はconstexpr func() contにすることが推奨されていますか？<br>
 A. constexprをつけることでコンパイル時に計算できるなら計算することを命令.<br>
-加えて,関数の中でメンバ変数を変更しないことを明示する.<br>
+加えて,constは関数の中でメンバ変数を変更しないことを明示する.<br>
 constは「constexprは引数や返り値のconst性は保障しない」という性質のため,<br>
 引数や返り値をconstにしたければ付ける.<br>
 <br>
