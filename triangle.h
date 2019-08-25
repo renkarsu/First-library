@@ -7,7 +7,7 @@
 #include<string_view>
 
 namespace brahman {
-
+//SUGGESTION: make math hedder, then put this function.
 template < typename T >
 constexpr T sqrt( T s )
 {
@@ -91,15 +91,15 @@ public:
         }
     }
 
-    constexpr T GetAB() const
+    constexpr T GetAB() const noexcept
     {
         return ab;
     }
-    constexpr T GetBC() const
+    constexpr T GetBC() const noexcept
     {
         return bc;
     }
-    constexpr T GetCA() const
+    constexpr T GetCA() const noexcept
     {
         return ca;
     }
