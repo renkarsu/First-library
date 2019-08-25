@@ -77,7 +77,6 @@ public:
 
     ~Triangle() = default;
 
-    //TODO: Increase readability
     constexpr TriangleShape InitializeShape() const
     {
         if(!IsTriangle(ab, bc, ca))
