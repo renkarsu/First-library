@@ -49,6 +49,27 @@ class Triangle
         return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
     }
 
+    static constexpr bool IsTriangle(T a, T b, T c)
+    {
+        if( (a+b>c && b+c>a && c+a>b) && (a>0 && b>0 && c>0) ) return true;
+        else                                                   return false;
+    }
+    static constexpr bool IsEquilateral(T a, T b, T c)
+    {
+        if(a==b && b==c) return true;
+        else             return false;
+    }
+    static constexpr bool IsRight(T a, T b, T c)
+    {
+        if(a*a+b*b == c*c||b*b+c*c == a*a||c*c+a*a == b*b) return true;
+        else                                               return false;
+    }
+    static constexpr bool IsIsosceles(T a, T b, T c)
+    {
+        if(a==b||b==c||c==a) return true;
+        else                 return false;
+    }
+
 public:
 
     constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
@@ -58,37 +79,25 @@ public:
     //TODO: Increase readability
     constexpr TriangleShape InitializeShape() const
     {
-        if((ab + bc > ca && ab + ca > bc && bc + ca > ab) && (ab > 0 && bc > 0 && ca > 0))
-        {
-            if(ab == bc && bc == ca)
-            {
-                return TriangleShape::Equilateral;
-            }
-            else if(ab*ab + bc*bc == ca*ca || ab*ab + ca*ca == bc*bc || bc*bc + ca*ca == ab*ab)
-            {
-                if(ab == bc || bc == ca || ca == ab)
-                {
-                    return TriangleShape::IsoscelesRight;
-                }
-                else
-                {
-                    return TriangleShape::Right;
-                }
-            }
-            else if(ab == bc || bc == ca || ca == ab)
-            {
-                return TriangleShape::Isosceles;
-            }
-            else
-            {
-                return TriangleShape::InEquilateral;
-            }
+        if(!IsTriangle(ab, bc, ca))
+                return TriangleShape::NotTriangle;
 
-        }
-        else
+        if(IsEquilateral(ab, bc, ca))
+                return TriangleShape::Equilateral;
+
+        else if(IsRight(ab, bc, ca))
         {
-            return TriangleShape::NotTriangle;
+            if(IsIsosceles(ab, bc, ca))
+                return TriangleShape::IsoscelesRight;
+            else
+                return TriangleShape::Right;
         }
+
+        else if(IsIsosceles(ab, bc, ca))
+                return TriangleShape::Isosceles;
+
+        else
+                return TriangleShape::InEquilateral;
     }
 
     constexpr T GetAB() const noexcept
