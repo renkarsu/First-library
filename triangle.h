@@ -43,6 +43,7 @@ class Triangle
     T area;
     TriangleShape shape = TriangleShape::UnInitialized;
 
+//TODO: intでクラスをインスタンス化すると面積の誤差が酷い
     static constexpr T CalculateArea(T a, T b, T c)
     {
         T s =  static_cast<T>(a+b+c) / 2;
