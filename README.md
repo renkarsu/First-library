@@ -23,25 +23,19 @@ Moreover, I hope this helps people who is C++ beginner.<br>
 
 # FEATURE(triangle.h)
 * namespace brahman<br>
-<br>
 
 global function<br>
 * sqrt(): template sqrt<br>
-<br>
 
 Instance<br>
 * brahman::Triangle<T> obj(side-length, side-length, side-length)<br>
-<br>
 
 member function<br>
 * Get??(): return side-length<br>
-<br>
 
 * GetArea(): return triangle area<br>
-<br>
 
 * GetShape(): return triangle-shape<br>
-<br>
 
 overload<br>
 * <<: you can write```cout << obj``` <br>
