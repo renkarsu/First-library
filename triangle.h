@@ -41,7 +41,7 @@ class Triangle
     const T bc;
     const T ca;
     const T area;
-    const TriangleShape shape = TriangleShape::UnInitialized;
+    const TriangleShape shape;
 
 //TODO: intでクラスをインスタンス化すると面積の誤差が酷い
     static constexpr T CalculateArea(T a, T b, T c) noexcept
@@ -96,7 +96,7 @@ class Triangle
 
 public:
 
-    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(Triangle::InitializeShape(ab, bc, ca)) {}
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(brahman::CalculateArea(ab, bc, ca)), shape(brahman::InitializeShape(ab, bc, ca)) {}
 
     ~Triangle() = default;
 
