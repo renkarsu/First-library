@@ -12,6 +12,7 @@ General purpose Triangle header only library.<br>
 I want to learn Best Practice about C++, making library and git.<br>
 Moreover, I hope this helps people who is C++ beginner.<br>
 <br>
+
 # STRUCTURE
 * hello.h: print hello<br>
 * triangle.h: This can operate triangle<br>
@@ -19,6 +20,7 @@ Moreover, I hope this helps people who is C++ beginner.<br>
 * LearnedList.md: put together things I learned<br>
 * project.txt: memo<br>
 <br>
+
 # FEATURE(triangle.h)
 * namespace brahman<br>
 <br>
