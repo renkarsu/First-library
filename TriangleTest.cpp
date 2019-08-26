@@ -24,6 +24,6 @@ int main(){
     std::cout << "Test GetShape()" << '\n';
     std::cout << "tri.GetShape(): " << tri.GetShape() << '\n' << '\n';
 
-    std::cout << "Test PrintCondition()" << '\n';
+    std::cout << "Test operator <<" << '\n';
     std::cout << tri;
 }
