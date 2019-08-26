@@ -37,41 +37,41 @@ enum class TriangleShape
 template <typename T>
 class Triangle
 {
-    T ab;//Didn't use const, because I'm going to implement side-length extension function.
-    T bc;
-    T ca;
-    T area;
-    TriangleShape shape = TriangleShape::UnInitialized;
+    const T ab;
+    const T bc;
+    const T ca;
+    const T area;
+    const TriangleShape shape = TriangleShape::UnInitialized;
 
 //TODO: intでクラスをインスタンス化すると面積の誤差が酷い
-    static constexpr T CalculateArea(T a, T b, T c)
+    static constexpr T CalculateArea(T a, T b, T c) noexcept
     {
         T s =  static_cast<T>(a+b+c) / 2;
         return static_cast<T>(brahman::sqrt(s*(s-a)*(s-b)*(s-c)));
     }
 
-    static constexpr bool IsTriangle(T a, T b, T c)
+    static constexpr bool IsTriangle(T a, T b, T c) noexcept
     {
         if( (a+b>c && b+c>a && c+a>b) && (a>0 && b>0 && c>0) ) return true;
         else                                                   return false;
     }
-    static constexpr bool IsEquilateral(T a, T b, T c)
+    static constexpr bool IsEquilateral(T a, T b, T c) noexcept
     {
         if(a==b && b==c) return true;
         else             return false;
     }
-    static constexpr bool IsRight(T a, T b, T c)
+    static constexpr bool IsRight(T a, T b, T c) noexcept
     {
         if(a*a+b*b == c*c||b*b+c*c == a*a||c*c+a*a == b*b) return true;
         else                                               return false;
     }
-    static constexpr bool IsIsosceles(T a, T b, T c)
+    static constexpr bool IsIsosceles(T a, T b, T c) noexcept
     {
         if(a==b||b==c||c==a) return true;
         else                 return false;
     }
 
-    static constexpr TriangleShape InitializeShape(T a, T b, T c)
+    static constexpr TriangleShape InitializeShape(T a, T b, T c) noexcept
     {
         if(!IsTriangle(a, b, c))
                 return TriangleShape::NotTriangle;
@@ -112,12 +112,12 @@ public:
     {
         return ca;
     }
-    constexpr T GetArea() const
+    constexpr T GetArea() const noexcept
     {
         return area;
     }
 
-    constexpr std::string_view GetShape() const
+    constexpr std::string_view GetShape() const noexcept
     {
         using namespace std::string_view_literals;
         switch (shape)
@@ -141,7 +141,7 @@ public:
             return "InEquilateral Triangle"sv;
 
         default:
-            return "Error"sv;//It will become exception handling
+            return "Error"sv;
         }
     }
 
