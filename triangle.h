@@ -71,23 +71,23 @@ class Triangle
         else                 return false;
     }
 
-    static constexpr TriangleShape InitializeShape() const
+    static constexpr TriangleShape InitializeShape(T a, T b, T c)
     {
-        if(!IsTriangle(ab, bc, ca))
+        if(!IsTriangle(a, b, c))
                 return TriangleShape::NotTriangle;
 
-        if(IsEquilateral(ab, bc, ca))
+        if(IsEquilateral(a, b, c))
                 return TriangleShape::Equilateral;
 
-        else if(IsRight(ab, bc, ca))
+        else if(IsRight(a, b, c))
         {
-            if(IsIsosceles(ab, bc, ca))
+            if(IsIsosceles(a, b, c))
                 return TriangleShape::IsoscelesRight;
             else
                 return TriangleShape::Right;
         }
 
-        else if(IsIsosceles(ab, bc, ca))
+        else if(IsIsosceles(a, b, c))
                 return TriangleShape::Isosceles;
 
         else
@@ -96,7 +96,7 @@ class Triangle
 
 public:
 
-    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(Triangle::InitializeShape(ab, bc, ca)) {}
 
     ~Triangle() = default;
 
