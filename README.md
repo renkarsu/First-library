@@ -1,55 +1,39 @@
 # First-library
 My first C++17 library
 
-三角形に特化した全く役に立たないライブラリ<br>
-This is not useful library for people.<br>
+三角形汎用ヘッダーオンリーライブラリ<br>
+General purpose Triangle header only library.<br>
 
-三角形汎用ヘッダ<br>
-General purpose Triangle header<br>
-
-namespace brahman<br>
-
-## Caution!!
-元々libraryとtestフォルダに分けてファイルを管理していましたが、ビルドシステムを整備するのがめんどくさいので、全部外に出しておきます。<br>
+#PURPOSE
+簡単な実装で済むライブラリ作成を通して,C++やライブラリ作成,git系のお作法を学ぶため<br>
+そして,今回学んだ知見をまとめたり,追いやすいsrcを心掛けたりすることで,<br>
+他のライブラリ作成入門者の参考になれれば良いなと思います.<br>
 <br>
-I don't use build system like Cmake.<br>
-Is it necessary?<br>
-I scatter my files.
-
-## 今後の予定
-* 非メンバ関数を用意する<br>
-* openSiv3Dを導入して三角形を描画する<br>
-* 三角形の辺を伸ばしたり、三角形を拡大縮小できたりするようにする<br>
-
-## Future
-* To prepare non-member function.<br>
-* Introduce openSiv3D, and then draw a triangle.<br>
-* extend side or scales a triangle.<br>
-
-## Initialization
-brahman::Triangle< typename > class-name(side-length, side-length, side-length);
-
-## member function
-GetXX():return side length<br>
-
-GetArea():return Area<br>
-
-GetShape():return Shape(string)<br>
-
-PrintCondition():Invoke all GetXX(), than call GetArea() and GetShape()
-
-## だめなところ
-機能が足りてない<br>
-なんとなく、なんかダメそう
-
-## なやみどころ
-クラス内のメンバ変数と一時変数の見分けを付けるか否か<br>
-辺ABをconstにするか否かを決めるために、辺の長さを変えたりするSetAB()を作ったりするかどうか<br>
-
-## 解決したこと
-三角形の面積を求めるときにcastが必要か否か<br>
-A.必要<br>
-* To overload operator<< in enum class TriangleShape.<br>
-A.enum classに実装しなくてよかった<br>
-仕様を決めてないせいで、constにしていない変数や関数が多い<br>
-A.いなむ先生とtimelerさんに多大な感謝<br>
+I want to learn Best Practice about C++, making library and git.<br>
+Moreover, I hope this helps people who is C++ beginner.<br>
+<br>
+#STRUCTURE<br>
+* hello.h: print hello<br>
+* triangle.h: This can operate triangle<br>
+* TriangleTest.cpp: test<br>
+* LearnedList.md: put together things I learned<br>
+* project.txt: memo<br>
+<br>
+#FEATURE(triangle.h)<br>
+* namespace brahman<br>
+<br>
+global function<br>
+* sqrt(): template sqrt<br>
+<br>
+Instance<br>
+* brahman::Triangle<T> obj(side-length, side-length, side-length)<br>
+<br>
+member function<br>
+* Get??(): return side-length<br>
+<br>
+* GetArea(): return triangle area<br>
+<br>
+* GetShape(): return triangle-shape<br>
+<br>
+overload<br>
+* <<: you can ```cout << obj``` <br>
