@@ -36,4 +36,4 @@ member function<br>
 * GetShape(): return triangle-shape<br>
 <br>
 overload<br>
-* <<: you can ```cout << obj``` <br>
+* <<: you can write```cout << obj``` <br>
