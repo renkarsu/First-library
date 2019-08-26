@@ -40,6 +40,7 @@ constexpr brahman::Triangle<T> tri(3, 4, 5);
 * なぜコンストラクタの引数にprivateな関数を使うときにbraman::してるの？<br>
 A. privateな関数であると明示したいから<br>
 <br>
+
 * なぜexplicitなコンストラクタにするのですか？<br>
 A. 関数の仮引数として構造体を与えた時,意図しない挙動を防ぐため<br>
 <br>
