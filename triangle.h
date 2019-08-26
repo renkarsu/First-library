@@ -71,13 +71,7 @@ class Triangle
         else                 return false;
     }
 
-public:
-
-    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
-
-    ~Triangle() = default;
-
-    constexpr TriangleShape InitializeShape() const
+    static constexpr TriangleShape InitializeShape() const
     {
         if(!IsTriangle(ab, bc, ca))
                 return TriangleShape::NotTriangle;
@@ -99,6 +93,12 @@ public:
         else
                 return TriangleShape::InEquilateral;
     }
+
+public:
+
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(Triangle::CalculateArea(ab, bc, ca)), shape(InitializeShape()) {}
+
+    ~Triangle() = default;
 
     constexpr T GetAB() const noexcept
     {
