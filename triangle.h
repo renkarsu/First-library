@@ -96,7 +96,7 @@ class Triangle
 
 public:
 
-    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(brahman::CalculateArea(ab, bc, ca)), shape(brahman::InitializeShape(ab, bc, ca)) {}
+    constexpr explicit Triangle(T ab, T bc, T ca): ab(ab), bc(bc), ca(ca), area(CalculateArea(ab, bc, ca)), shape(InitializeShape(ab, bc, ca)) {}
 
     ~Triangle() = default;
 
