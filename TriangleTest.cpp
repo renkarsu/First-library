@@ -10,6 +10,7 @@ int main(){
 
     //test 'area.h'
     constexpr brahman::Triangle<double> tri(2.5, 4.2, 5.0);
+    constexpr brahman::Triangle<double> tri2(2.5, 4.2, 5.0);
 
     std::cout << "Input data: " << tri.GetAB() << " " << tri.GetBC() << " " << tri.GetCA() << '\n' << '\n';
 
@@ -25,5 +26,23 @@ int main(){
     std::cout << "tri.GetShape(): " << tri.GetShape() << '\n' << '\n';
 
     std::cout << "Test operator <<" << '\n';
-    std::cout << tri;
+    std::cout << tri << tri2 << '\n' << '\n';
+
+    std::cout << "Test operator <" << '\n';
+    std::cout << (tri < tri2) << '\n' << '\n';
+
+    std::cout << "Test operator >" << '\n';
+    std::cout << (tri > tri2) << '\n' << '\n';
+
+    std::cout << "Test operator <=" << '\n';
+    std::cout << (tri <= tri2) << '\n' << '\n';
+
+    std::cout << "Test operator >=" << '\n';
+    std::cout << (tri >= tri2) << '\n' << '\n';
+
+    std::cout << "Test operator ==" << '\n';
+    std::cout << (tri == tri2) << '\n' << '\n';
+
+    std::cout << "Test operator !=" << '\n';
+    std::cout << (tri != tri2) << '\n' << '\n';
 }

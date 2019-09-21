@@ -154,6 +154,31 @@ public:
         os << "Shape is " << tri.GetShape() << '\n';
         return os;
     }
+
+    friend bool operator<(Triangle const& tri1, Triangle const& tri2)
+    {
+        return  ( tri1.GetArea() < tri2.GetArea() );
+    }
+    friend bool operator>(Triangle const& tri1, Triangle const& tri2)
+    {
+        return  ( tri1.GetArea() > tri2.GetArea() );
+    }
+    friend bool operator<=(Triangle const& tri1, Triangle const& tri2)
+    {
+        return !( tri1.GetArea() > tri2.GetArea() );
+    }
+    friend bool operator>=(Triangle const& tri1, Triangle const& tri2)
+    {
+        return !( tri1.GetArea() < tri2.GetArea() );
+    }
+    friend bool operator==(Triangle const& tri1, Triangle const& tri2)
+    {
+        return  ( tri1.GetArea() == tri2.GetArea() );
+    }
+    friend bool operator!=(Triangle const& tri1, Triangle const& tri2)
+    {
+        return !( tri1.GetArea() == tri2.GetArea() );
+    }
 };
 }
 
