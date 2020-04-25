@@ -9,7 +9,7 @@ General purpose Triangle header only library.<br>
 そして,今回学んだ知見をまとめたり,追いやすいsrcを心掛けたりすることで,<br>
 他のライブラリ作成入門者の参考になれれば良いなと思います.<br>
 <br>
-I want to learn Best Practice about C++, making library and git.<br>
+I want to learn Best Practice about C++, making library and using git.<br>
 Moreover, I hope this helps people who is C++ beginner.<br>
 <br>
 
